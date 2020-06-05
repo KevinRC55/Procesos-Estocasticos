@@ -13,13 +13,14 @@ int main(){
 	int decisiones,estados;
 	int i,j,k;
 	int N; // Numero maximo de iteraciones
-	int n;  // sera el criterio de parada donde n <= N
+	int n;
 	long int numGrande = 9999999999;
 	float matrizTransicion[100][100][100];
 	float matrizCostos[100][100];
-	float alfa; // Factor de descuento
-	float epsilon; // error 
-	char Respuesta ; // Caracter para saber si existe el costo[i][k]
+	float alfa;
+	float diferencia;
+	float epsilon;
+	char Respuesta ;
 	
 	
 	
@@ -43,7 +44,7 @@ int main(){
 	
 
 	 // Se ingresa la matriz de transicion
-	cout << "Matriz de transicion de estado a estado" << endl;
+	cout << "Matriz de transicion" << endl;
 
 	for(k=0;k < decisiones;k++){
 		for(i=0;i<estados;i++){
@@ -82,7 +83,7 @@ int main(){
     // Mostramos el contenido de la matriz de transicion
 	cout << endl << "Matrices de transicion:" << endl;
 	for(k= 0;k < decisiones;k++){
-		cout << "Decision K = " << " "  << k+1 << endl;
+		cout << "Decision K = " << " "  << i+1 << endl;
 		for(i=0;i < estados;i++){
 			for(j=0;j<estados;j++){
 				cout << matrizTransicion[i][j][k] << " ";
@@ -111,7 +112,7 @@ int main(){
 	
 	//Calculo de elementos más chicos por fila	
 
-	float V[estados];
+	float V[N][estados];
 	int P[estados];
 	
 	for(i=0;i<estados;i++){
@@ -125,7 +126,7 @@ int main(){
 					//Sacar el valor de los k para obtener P
 					}
 				}
-			V[i] = Vminimo;
+			V[0][i] = Vminimo;
 			P[i] = Pminimo+1;
 
 		}
@@ -136,7 +137,7 @@ int main(){
 	cout << "Costos minimos: [";
 
 	for(i=0;i< estados;i++){
-		cout << V[i]  << ",";
+		cout << V[0][i]  << ",";
 	}
 
 	cout << "]" << endl;
@@ -148,7 +149,10 @@ int main(){
 	}
 	cout << "]" << endl;
 
-	
+	// 
+	//
+
+
 	
 
 
