@@ -13,13 +13,13 @@ int main(){
 	int decisiones,estados;
 	int i,j,k;
 	int N; // Numero maximo de iteraciones
-	int n;
+	int n;  // sera el criterio de parada donde n <= N
 	long int numGrande = 9999999999;
 	float matrizTransicion[100][100][100];
 	float matrizCostos[100][100];
-	float alfa;
-	float epsilon;
-	char Respuesta ;
+	float alfa; // Factor de descuento
+	float epsilon; // error 
+	char Respuesta ; // Caracter para saber si existe el costo[i][k]
 	
 	
 	
@@ -43,12 +43,12 @@ int main(){
 	
 
 	 // Se ingresa la matriz de transicion
-	cout << "Matriz de transicion" << endl;
+	cout << "Matriz de transicion de estado a estado" << endl;
 
-	for(i=0;i < decisiones;i++){
-		for(j=0;j<decisiones;j++){
-			for(k=0;k<estados;k++){
-			cout << "Decision K =  " << i+1 << " " << "P[" << j << "][" << k+1 << "]:";
+	for(k=0;k < decisiones;k++){
+		for(i=0;i<estados;i++){
+			for(j=0;j<estados;j++){
+			cout << "Decision K =  " << k+1 << " " << "P[" << i << "][" << j << "]:";
 			cin >> matrizTransicion[i][j][k];
 			}
 		}
@@ -81,10 +81,10 @@ int main(){
 
     // Mostramos el contenido de la matriz de transicion
 	cout << endl << "Matrices de transicion:" << endl;
-	for(i= 0;i < decisiones;i++){
-		cout << "Decision K = " << " "  << i+1 << endl;
-		for(j=0;j < decisiones;j++){
-			for(k=0;k<estados;k++){
+	for(k= 0;k < decisiones;k++){
+		cout << "Decision K = " << " "  << k+1 << endl;
+		for(i=0;i < estados;i++){
+			for(j=0;j<estados;j++){
 				cout << matrizTransicion[i][j][k] << " ";
 			}
 		   cout << endl;	
