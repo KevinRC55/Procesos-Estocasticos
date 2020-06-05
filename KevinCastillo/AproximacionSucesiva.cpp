@@ -128,7 +128,7 @@ int main(){
 				}
 			V[0][i] = Vminimo;
 			P[i] = Pminimo+1;
-
+			Pminimo = 0;	
 		}
 	
 	
@@ -151,9 +151,17 @@ int main(){
 
 	// 
 	//
-
-
 	
+	for(k=0;k<decisiones;k++){
+		float suma = 0.0;
+		for(i=0;i<estados;i++){
+			for(j=0;j<estados;j++){
+				suma = suma + matrizTransicion[i][j][k];
+			}
+		cout << "Suma de la fila[" << i << "]:" << "K=" << k  << "valor:" << suma << endl;
+		suma = 0;
+		}
+	}
 
 
 
