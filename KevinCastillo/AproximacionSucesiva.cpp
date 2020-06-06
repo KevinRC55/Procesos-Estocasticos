@@ -15,6 +15,7 @@ int main(){
 	int N; // Numero maximo de iteraciones
 	int n;
 	long int numGrande = 9999999999;
+	long int numChico = -9999999999;
 	float matrizTransicion[100][100][100];
 	float matrizCostos[100][100];
 	float alfa;
@@ -83,7 +84,7 @@ int main(){
     // Mostramos el contenido de la matriz de transicion
 	cout << endl << "Matrices de transicion:" << endl;
 	for(k= 0;k < decisiones;k++){
-		cout << "Decision K = " << " "  << i+1 << endl;
+		cout << "Decision K = " << " "  << k+1 << endl;
 		for(i=0;i < estados;i++){
 			for(j=0;j<estados;j++){
 				cout << matrizTransicion[i][j][k] << " ";
@@ -106,13 +107,21 @@ int main(){
 	
 	cout << endl;
 	
-	n = 1; 
+	n = 0; 
 	
 	// Calcular  V_{i}^{n} = min_{k} {C_{ik}}	 
 	
 	//Calculo de elementos más chicos por fila	
 
 	float V[N][estados];
+	
+	for(i=0;i<N;i++){
+		for(j=0;j<estados;j++){
+			V[i][j] = 0;
+		}
+	}
+
+	
 	int P[estados];
 	
 	for(i=0;i<estados;i++){
@@ -150,18 +159,25 @@ int main(){
 	cout << "]" << endl;
 
 	// 
-	//
-	
-	for(k=0;k<decisiones;k++){
-		float suma = 0.0;
+	float suma = 0;
+
+	while(n < N){
 		for(i=0;i<estados;i++){
-			for(j=0;j<estados;j++){
-				suma = suma + matrizTransicion[i][j][k];
+			for(k=0;k<decisiones;k++){
+					for(j=0;j< estados;j++){
+						suma = suma +(matrizTransicion[i][j][k] * V[n][j]);
+						//V[n+1][i] = matrizCostos[i][k] + (alfa*suma);
+					}
+				
+				V[n+1][i] = matrizCostos[i][k] + alfa*suma;
+				cout << "V["<< n+1<< "][" << i << "]:"<<  V[n+1][i] << endl; 
+				//crear un arreglo temporal al alamcene los minimos de V[n+1][i] con tamaño i
+				suma = 0;	
 			}
-		cout << "Suma de la fila[" << i << "]:" << "K=" << k  << "valor:" << suma << endl;
-		suma = 0;
+			// cout << endl;
+			}
+			n++;
 		}
-	}
 
 
 
