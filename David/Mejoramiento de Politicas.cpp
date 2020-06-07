@@ -15,9 +15,9 @@ int main(){
 	setlocale(LC_CTYPE,"Spanish");
 	
 	cout<<"\n";
-	cout<<"\t\tMejoramiento de Pol韙icas\n\n";
+	cout<<"\t\tMejoramiento de Pol铆ticas\n\n";
 	
-	//DETERMINACI覰 DE ESTADOS Y DECISIONES
+	//DETERMINACI脫N DE ESTADOS Y DECISIONES
 	do{
 		cout<<"Maximizar(+) o Minimizar(-):		";
 		cin>>op;
@@ -32,9 +32,9 @@ int main(){
     float Prob[num_edos][num_edos][num_dec];
     system("cls");
     
-   //ASIGNACI覰 DE VALORES A MATRICES DE TRANSICI覰
+   //ASIGNACI脫N DE VALORES A MATRICES DE TRANSICI脫N
     for(k=0;k<=num_dec-1;k++){
-    	cout<<"\n\n\tDecisi髇 "<<k+1<<"\n\n";
+    	cout<<"\n\n\tDecisi贸n "<<k+1<<"\n\n";
     	cout<<"Probabilidades de estado a estado:\n";
 		for(i=0;i<=num_edos-1;i++){
 			do{
@@ -53,17 +53,17 @@ int main(){
 		system("cls");
 	}
 	
-	//ASIGNACI覰 DE COSTOS
+	//ASIGNACI脫N DE COSTOS
 	system("cls");
 	cout<<"\n\n\tCostos\n";
-	cout<<"NOTA: Si la decisi髇 no se toma, escribir -1\n\n";
+	cout<<"NOTA: Si la decisi贸n no se toma, escribir -1\n\n";
 	float Costos[num_dec][num_edos];
 	for(i=0;i<=num_dec-1;i++){
 		for(j=0;j<=num_edos-1;j++){
 			if(op=='-'){
-				cout<<"Costo de tomar la decisi髇 "<<i+1<<" en el estado "<<j+1<<"	";
+				cout<<"Costo de tomar la decisi贸n "<<i+1<<" en el estado "<<j+1<<"	";
 			}else{
-				cout<<"Ganancia de tomar la decisi髇 "<<i+1<<" en el estado "<<j+1<<"	";
+				cout<<"Ganancia de tomar la decisi贸n "<<i+1<<" en el estado "<<j+1<<"	";
 			}
 			cin>>Costos[i][j];
 		}
@@ -71,9 +71,9 @@ int main(){
 	
 	//MATRICES
 	system("cls");
-	cout<<"\n\n\tMatrices de transici髇 y Costos\n\n";
+	cout<<"\n\n\tMatrices de transici贸n y Costos\n\n";
 	for(k=0;k<=num_dec-1;k++){
-		cout<<"Decisi髇 "<<k+1<<"\n";
+		cout<<"Decisi贸n "<<k+1<<"\n";
 		for(i=0;i<=num_edos-1;i++){
 			for(j=0;j<=num_edos-1;j++){
 				cout<<Prob[i][j][k]<<"	";
@@ -92,14 +92,26 @@ int main(){
 	}
 	system("pause");
 	
+	//--------------------------------------------
+	//--------------------------------------------
+	//INICIO DE PROGRAMA USANDO LAOS VALORES DADOS
+	//--------------------------------------------
+	//--------------------------------------------
+	
+	//Prob			Matriz de probabilidades por decisi贸n
+	//Costos 		Matriz de costos
+	//num_edos		N煤mero de estados
+	//num_dec		N煤mero de decisiones
+	//op			Maximizar o minimizar	
+	
 	//POLITICA INICIAL
 	system("cls");
-	cout<<"\n\n\tPol韙ica Inicial\n\n";
+	cout<<"\n\n\tPol铆tica Inicial\n\n";
 	int Pol[num_edos];
 	int nPol[num_edos];
 	for(i=0;i<=num_edos-1;i++){
 		do{
-			cout<<"Decisi髇 a tomar en el estado "<<i+1<<":	";
+			cout<<"Decisi贸n a tomar en el estado "<<i+1<<":	";
 			cin>>Pol[i];
 			Pol[i]=Pol[i]-1;
 		}while(Pol[i]<0 || Pol[i]>=num_dec);
@@ -107,11 +119,11 @@ int main(){
 	
 	int Final=0;
 	
-	//ITERACI覰 DE POL蚑ICAS
+	//ITERACI脫N DE POL脥TICAS
 	do{
 		system("cls");
-		//MATRIZ DE LA POL蚑ICA
-		cout<<"\n\n\tMatriz de la pol韙ica\n";
+		//MATRIZ DE LA POL脥TICA
+		cout<<"\n\n\tMatriz de la pol铆tica\n";
 		k=0;
 		for(i=0;i<=num_edos-1;i++){
 			for(j=0;j<=num_edos-1;j++){
@@ -272,8 +284,8 @@ int main(){
 		system("pause");
 		system("cls");
 		
-		//MEJORAMIENTO DE LA POL蚑ICA
-		cout<<"\n\n\tMejoramiento de la pol韙ica\n\n";
+		//MEJORAMIENTO DE LA POL脥TICA
+		cout<<"\n\n\tMejoramiento de la pol铆tica\n\n";
 		int decs[num_edos];
 		float cost_p[num_dec][num_edos];
 		for(i=0;i<=num_edos-1;i++){
@@ -292,11 +304,11 @@ int main(){
 			}
 		}
 		
-		//C罫CULO DE COSTOS PROMEDIOs
+		//C脕LCULO DE COSTOS PROMEDIOs
 		for(i=0;i<=num_edos-1;i++){
 			if(decs[i]==1){
 				cout<<"Estado "<<i+1<<":\n\n";
-				cout<<"\tDecisi髇 鷑ica"<<"\n\n";
+				cout<<"\tDecisi贸n 煤nica"<<"\n\n";
 				nPol[i]=Pol[i];
 			}else{
 				cout<<"Estado "<<i+1<<":\n\n";
@@ -307,7 +319,7 @@ int main(){
 							cost_p[ii][i]+=Prob[i][j][ii]*B[j+1];
 						}
 						cost_p[ii][i]-=B[i+1];
-						cout<<"\tDecisi髇 "<< ii+1<<"\t";
+						cout<<"\tDecisi贸n "<< ii+1<<"\t";
 						cout<<cost_p[ii][i]<<"\n";
 					}
 				}
@@ -317,7 +329,7 @@ int main(){
 		int max=0;
 		int min=10000;
 		
-		//DETERMINACI覰 DE NUEVA POL蚑ICA
+		//DETERMINACI脫N DE NUEVA POL脥TICA
 		if(op=='+'){
 			for(i=0;i<=num_edos-1;i++){
 				max=0;
@@ -349,15 +361,15 @@ int main(){
 		}
 		
 		if(ind==num_edos){//FIN
-			cout<<"\n\n\tLA POL蚑ICA ES 覲TIMA\n\n";
+			cout<<"\n\n\tLA POL脥TICA ES 脫PTIMA\n\n";
 			for(i=0;i<=num_edos-1;i++){
-				cout<<"Tomar la decisi髇 "<<nPol[i]+1<<" en el estado "<<i+1<<"\n";
+				cout<<"Tomar la decisi贸n "<<nPol[i]+1<<" en el estado "<<i+1<<"\n";
 			}
 			Final=1;
-		}else{//NUEVA POL蚑ICA
-			cout<<"\n\n\tLA POL蚑ICA NO ES 覲TIMA. NUEVA POL蚑ICA:\n\n";
+		}else{//NUEVA POL脥TICA
+			cout<<"\n\n\tLA POL脥TICA NO ES 脫PTIMA. NUEVA POL脥TICA:\n\n";
 			for(i=0;i<=num_edos-1;i++){
-				cout<<"Tomar la decisi髇 "<<nPol[i]+1<<" en el estado "<<i+1<<"\n";
+				cout<<"Tomar la decisi贸n "<<nPol[i]+1<<" en el estado "<<i+1<<"\n";
 			}
 			for(i=0;i<=num_edos-1;i++){
 				Pol[i]=nPol[i];
