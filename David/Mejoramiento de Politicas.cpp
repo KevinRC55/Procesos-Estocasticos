@@ -293,7 +293,7 @@ int main(){
 		}
 		for(i=0;i<=num_dec-1;i++){
 			for(j=0;j<=num_edos-1;j++){
-				if(Costos[i][j]!=-1 && Costos[i][j]!=99999 && Costos[i][j]!=-99999){
+				if(Costos[i][j]!=-1 && Costos[i][j]<99999 && Costos[i][j]>-99999){
 					decs[j]+=1;
 				}
 			}
@@ -313,7 +313,7 @@ int main(){
 			}else{
 				cout<<"Estado "<<i+1<<":\n\n";
 				for(ii=0;ii<=num_dec-1;ii++){
-					if(Costos[ii][i]!=-1 && Costos[ii][i]!=99999 && Costos[ii][i]!=-99999){
+					if(Costos[ii][i]!=-1 && Costos[ii][i]<99999 && Costos[ii][i]>-99999){
 						cost_p[ii][i]+=Costos[ii][i];
 						for(j=0;j<=num_edos-2;j++){
 							cost_p[ii][i]+=Prob[i][j][ii]*B[j+1];
