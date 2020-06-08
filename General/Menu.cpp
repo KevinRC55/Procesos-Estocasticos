@@ -36,7 +36,7 @@ int main(){
 		for(k=0;k < decisiones;k++){
 			for(i=0;i<estados;i++){
 				for(j=0;j<estados;j++){
-					cout << "Decision K =  " << k+1 << " " << "P[" << i+1 << "][" << j+1 << "]:";
+					cout << "Decision K =  " << k+1 << " " << "P[" << i << "][" << j << "]:";
 					cin >> matrizTransicion[i][j][k];
 				}
 			}
@@ -60,7 +60,7 @@ int main(){
 	
 		for(i = 0;i<estados;i++){
 			for(j=0;j<decisiones;j++){
-				cout << endl <<"Existe C[" << i+1 << "][" << j+1 << "]?:" << endl;
+				cout << endl <<"Existe C[" << i << "][" << j << "]?:" << endl;
 				cout << "Si=s No=n:";
 				cin >> Respuesta;
 				if(Respuesta == 's' || Respuesta == 'S'){
@@ -125,7 +125,7 @@ int main(){
 
 		for(i = 0;i<estados;i++){
 			for(j=0;j < decisiones;j++){
-				cout << endl <<"Existe C[" << i+1 << "][" << j+1 << "]?:" << endl;
+				cout << endl <<"Existe C[" << i << "][" << j << "]?:" << endl;
 				cout << "Si=s No=n:";
 				cin >> Respuesta;
 				if(Respuesta == 's' || Respuesta == 'S'){

@@ -2,17 +2,31 @@
 #include<wchar.h>
 #include<locale.h>
 
-using std::cout;
-using std::cin;
+using namespace std;
 
-int num_edos,num_dec;
-int i,j,ii,jj,k,a,b,c,dec;
-float suma;
-char op;
 
-void MaximizarMP(float Prob[100][100][100],long int **Costos,int num_edos,int num_dec){
+void MaximizarMP(float Prob[10][10][10],float Costos[10][10],int num_edos,int num_dec){
+	
+	int num_edos,num_dec;
+	int i,j,ii,jj,k,a,b,c,dec;
+	float suma;
+	char op;
+
+
+	float aux[10][10];
+	for(i=0;i<=num_edos-1;i++){
+		for(j=0;j<=num_dec-1;j++){
+			aux[i][j]=Costos[i][j];
+		}
+	}
+	for(i=0;i<=num_dec-1;i++){
+		for(j=0;j<=num_edos-1;j++){
+			Costos[i][j]=aux[j][i];
+		}
+	}
+	
 //MATRICES
-	system("cls");
+	system("clear");
 	cout<<"\n\n\tMatrices de transición y Costos\n\n";
 	for(k=0;k<=num_dec-1;k++){
 		cout<<"Decisión "<<k+1<<"\n";
@@ -32,7 +46,7 @@ void MaximizarMP(float Prob[100][100][100],long int **Costos,int num_edos,int nu
 		}
 		cout<<"\n";
 	}
-	system("pause");
+	//system("pause");
 	
 	//--------------------------------------------
 	//--------------------------------------------
@@ -47,7 +61,7 @@ void MaximizarMP(float Prob[100][100][100],long int **Costos,int num_edos,int nu
 	//op			Maximizar o minimizar	
 	
 	//POLITICA INICIAL
-	system("cls");
+	system("clear");
 	cout<<"\n\n\tPolítica Inicial\n\n";
 	int Pol[num_edos];
 	int nPol[num_edos];
@@ -63,7 +77,7 @@ void MaximizarMP(float Prob[100][100][100],long int **Costos,int num_edos,int nu
 	
 	//ITERACIÓN DE POLÍTICAS
 	do{
-		system("cls");
+		system("clear");
 		//MATRIZ DE LA POLÍTICA
 		cout<<"\n\n\tMatriz de la política\n";
 		k=0;
@@ -99,8 +113,8 @@ void MaximizarMP(float Prob[100][100][100],long int **Costos,int num_edos,int nu
 			B[i]=Costos[Pol[k]][i];
 			k+=1;
 		}
-		system("pause");
-		system("cls");
+		//system("pause");
+		system("clear");
 		
 		cout<<"\n\n\tGauss-Jordan\n\n";
 		cout<<"\n\nMatriz de Costos Promedio\n";
@@ -223,8 +237,8 @@ void MaximizarMP(float Prob[100][100][100],long int **Costos,int num_edos,int nu
 			cout<<"\n\n";
 			k-=1;
 		}
-		system("pause");
-		system("cls");
+		//system("pause");
+		system("clear");
 		
 		//MEJORAMIENTO DE LA POLÍTICA
 		cout<<"\n\n\tMejoramiento de la política\n\n";
@@ -302,13 +316,33 @@ void MaximizarMP(float Prob[100][100][100],long int **Costos,int num_edos,int nu
 				Pol[i]=nPol[i];
 			}
 		}
-		system("pause");
+		//system("pause");
 	}while(Final==0);
 }	
 
 void MinimizarMP(float Prob[100][100][100], long int **Costos, int num_edos, int num_dec){
+	
+	int num_edos,num_dec;
+	int i,j,ii,jj,k,a,b,c,dec;
+	float suma;
+	char op;
+	
+	
+	
+	float aux[10][10];
+	for(i=0;i<=num_edos-1;i++){
+		for(j=0;j<=num_dec-1;j++){
+			aux[i][j]=Costos[i][j];
+		}
+	}
+	for(i=0;i<=num_dec-1;i++){
+		for(j=0;j<=num_edos-1;j++){
+			Costos[i][j]=aux[j][i];
+		}
+	}
+	//system("pause");
 	//MATRICES
-	system("cls");
+	system("clear");
 	cout<<"\n\n\tMatrices de transición y Costos\n\n";
 	for(k=0;k<=num_dec-1;k++){
 		cout<<"Decisión "<<k+1<<"\n";
@@ -328,7 +362,7 @@ void MinimizarMP(float Prob[100][100][100], long int **Costos, int num_edos, int
 		}
 		cout<<"\n";
 	}
-	system("pause");
+	//system("pause");
 	
 	//--------------------------------------------
 	//--------------------------------------------
@@ -343,7 +377,7 @@ void MinimizarMP(float Prob[100][100][100], long int **Costos, int num_edos, int
 	//op			Maximizar o minimizar	
 	
 	//POLITICA INICIAL
-	system("cls");
+	system("clear");
 	cout<<"\n\n\tPolítica Inicial\n\n";
 	int Pol[num_edos];
 	int nPol[num_edos];
@@ -359,7 +393,7 @@ void MinimizarMP(float Prob[100][100][100], long int **Costos, int num_edos, int
 	
 	//ITERACIÓN DE POLÍTICAS
 	do{
-		system("cls");
+		system("clear");
 		//MATRIZ DE LA POLÍTICA
 		cout<<"\n\n\tMatriz de la política\n";
 		k=0;
@@ -395,8 +429,8 @@ void MinimizarMP(float Prob[100][100][100], long int **Costos, int num_edos, int
 			B[i]=Costos[Pol[k]][i];
 			k+=1;
 		}
-		system("pause");
-		system("cls");
+		//system("pause");
+		system("clear");
 		
 		cout<<"\n\n\tGauss-Jordan\n\n";
 		cout<<"\n\nMatriz de Costos Promedio\n";
@@ -519,8 +553,8 @@ void MinimizarMP(float Prob[100][100][100], long int **Costos, int num_edos, int
 			cout<<"\n\n";
 			k-=1;
 		}
-		system("pause");
-		system("cls");
+		//system("pause");
+		system("clear");
 		
 		//MEJORAMIENTO DE LA POLÍTICA
 		cout<<"\n\n\tMejoramiento de la política\n\n";
@@ -601,7 +635,7 @@ void MinimizarMP(float Prob[100][100][100], long int **Costos, int num_edos, int
 				Pol[i]=nPol[i];
 			}
 		}
-		system("pause");
+		//system("pause");
 	}while(Final==0);
 }
 
