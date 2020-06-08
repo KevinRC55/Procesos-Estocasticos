@@ -90,7 +90,7 @@ void MaximizarEnumeracionExhaustiva(float mt[100][100][100], long int **csts, in
 	int pos=0;
 	float mayor = -999999; 
 
-	//system("cls");
+	system("clear");
 	for(k=0;k<=dcsns-1;k++){
 		for(i=0;i<=stds-1;i++){
             for(j=0;j<=stds-1;j++){
@@ -285,7 +285,7 @@ void MaximizarEnumeracionExhaustiva(float mt[100][100][100], long int **csts, in
 		float e=0;
 		for(i=0;i<=stds-1;i++){
 			j = pltcs[kk][i]-1;
-			e+=csts[j][i]*v[i]; 
+			e+=csts[i][j]*v[i]; 
 		}
 
 		cout<<"\n\n\n\t\t ||Costo asociado a la politica||\n\n";
@@ -301,7 +301,7 @@ void MaximizarEnumeracionExhaustiva(float mt[100][100][100], long int **csts, in
 
 	cout<<"\n\n";
 	//system("pause");
-	//system("cls");
+	system("clear");
 	
     cout<<"\n\n"<<"El costo asociado mayor es E(c)= "<<mayor;
 
@@ -402,7 +402,7 @@ void MinimizarEnumeracionExhaustiva(float mt[100][100][100], long int **csts, in
 	float mayor = -999999;
 	float menor = 999999; 
 
-	//system("cls");
+	system("clear");
 	for(k=0;k<=dcsns-1;k++){
 		for(i=0;i<=stds-1;i++){
             for(j=0;j<=stds-1;j++){
@@ -597,7 +597,7 @@ void MinimizarEnumeracionExhaustiva(float mt[100][100][100], long int **csts, in
 		float e=0;
 		for(i=0;i<=stds-1;i++){
 			j = pltcs[kk][i]-1;
-			e+=csts[j][i]*v[i]; 
+			e+=csts[i][j]*v[i]; 
 		}
 
 		cout<<"\n\n\n\t\t ||Costo asociado a la politica||\n\n";
@@ -613,7 +613,7 @@ void MinimizarEnumeracionExhaustiva(float mt[100][100][100], long int **csts, in
 	}
 	cout<<"\n\n";
 	//system("pause");
-	//system("cls");
+	system("clear");
 	
     cout<<"\n\n"<<"El costo asociado menor es E(c)= "<<menor;
 	

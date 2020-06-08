@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include <iostream>
 #include <math.h>
 
@@ -41,6 +42,7 @@ int main(){
 			}
 		cout << endl;
 		}	
+		system("clear");
 	
 
 	// Hacemos referencia a la matriz de costos
@@ -70,6 +72,8 @@ int main(){
 				}
 			}
 		}
+		system("clear");
+
 		cout << endl;
 		cout << "Procesos Markoviano de decisiones:" << endl;
 	do{
@@ -81,24 +85,27 @@ int main(){
 		cout << endl;
 		cout << "Seleccione una opcion:";
 		cin >> Algoritmo;
-	
 
 			if(Algoritmo == 1){
+				system("clear");
 				cout << endl;
 				MinimizarEnumeracionExhaustiva(matrizTransicion,matrizCostos,estados,decisiones);
 				cout << endl;
 			}
 			else if(Algoritmo == 2){
+				system("clear");
 				cout << endl;
 				//MinimizarMP(matrizTransicion,matrizCostos,estados,decisiones);		
 				cout << endl;
 			}
 			else if(Algoritmo == 3){
 				cout << endl;
+				system("clear");
 				cout << "Minimizar Mejoramiento de politicas con descuento" << endl;
 				cout << endl;
 			}
 			else if(Algoritmo == 4){
+				system("clear");
 				MinimizarAproximacionSucesiva(matrizTransicion,matrizCostos,estados,decisiones);
 				cout << endl;
 			}
@@ -131,6 +138,7 @@ int main(){
 			}
 		}
 
+		system("clear");
 
 		cout << endl;
 		cout << "Procesos Markoviano de decisiones:" << endl;
@@ -145,21 +153,25 @@ int main(){
 			cin >> Algoritmo;
 
 				if(Algoritmo == 1){
+					system("clear");
 					cout << endl;
 					MaximizarEnumeracionExhaustiva(matrizTransicion,matrizCostos,estados,decisiones);
 					cout << endl;
 				}
 				else if(Algoritmo == 2){
+					system("clear");
 					cout << endl;
 					//MaximizarMP(matrizTransicion,matrizCostos,estados,decisiones);
 					cout << endl;
 				}
 				else if(Algoritmo == 3){
+					system("clear");
 					cout << endl;
 					cout << "Maximizar Mejoramiento de politicas con descuento" << endl;
 					cout << endl;
 				}
 				else if(Algoritmo == 4){
+					system("clear");
 					MaximizarAproximacionSucesiva(matrizTransicion,matrizCostos,estados,decisiones);
 					cout << endl;
 				}	
