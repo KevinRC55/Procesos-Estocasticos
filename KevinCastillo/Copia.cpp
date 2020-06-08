@@ -1,11 +1,9 @@
 #include <iostream>
-#include <cmath>
-#include <vector>
 
 using namespace std;
 	
 	
-void Minimizar(int estados,int decisiones){
+void Minimizar(int **matrizCostos,int estados,int decisiones){
 	
 	int i,j,k;
 	int N; // Numero maximo de iteraciones
@@ -15,7 +13,6 @@ void Minimizar(int estados,int decisiones){
 	long int politicaTemporal;
 	double numGrande = 9999999999;
 	float matrizTransicion[100][100][100];
-	float matrizCostos[100][100];
 	float alfa;
 	float epsilon;
 	char Respuesta ;
@@ -24,7 +21,7 @@ void Minimizar(int estados,int decisiones){
 	// i = estados
 	// j = estados ya que j va de 0 hasta m y m son los estados   
 	// k = decisiones
-	
+	cout << endl;
 	cout << "Ingrese el numero maximo de iteraciones:";
 	cin >> N;	
 
@@ -48,28 +45,8 @@ void Minimizar(int estados,int decisiones){
 	cout << endl;
 	}
 
-
-
-	cout << "Ingresa los costos:" << endl;
-	cout << "Para cada estado ingresa su decision correspondiente:" << endl;
+	// Matriz de costos[i][j]
 	
-
-	for(i = 0;i<estados;i++){
-		for(j=0;j < decisiones;j++){
-			cout << endl <<"Existe C[" << i+1 << "][" << j+1 << "]?:" << endl;
-			cout << "Si=s No=n:";
-			cin >> Respuesta;
-			if(Respuesta == 's' || Respuesta == 'S'){
-			cout << "Ingrese el costo:";
-			cin >> matrizCostos[i][j];
-			}
-			else if(Respuesta == 'n' || Respuesta == 'N'){
-			matrizCostos[i][j] = numGrande;
-			}
-		}
-	}
-	
-
  //limpiamos buffer con funcion cls
 
     // Mostramos el contenido de la matriz de transicion
@@ -90,7 +67,7 @@ void Minimizar(int estados,int decisiones){
 	for(i=0;i<estados;i++){
 			for(k=0;k<decisiones;k++){
 				if(matrizCostos[i][k] < numGrande ){
-					cout << "C[" << i+1 << "][" << k+1 << "]:" << matrizCostos[i][k] << endl;
+					cout << "C[" << i << "][" << k+1 << "]:" << matrizCostos[i][k] << endl;
 					
 				}
 		 	}
@@ -192,7 +169,7 @@ void Minimizar(int estados,int decisiones){
 }
 
 
-void Maximizar(int estados,int decisiones){
+void Maximizar(int **matrizCostos,int estados,int decisiones){
 	
 	int i,j,k;
 	int N; // Numero maximo de iteraciones
@@ -202,7 +179,6 @@ void Maximizar(int estados,int decisiones){
 	long int politicaTemporal;
 	double numChico = -9999999999;
 	float matrizTransicion[100][100][100];
-	float matrizCostos[100][100];
 	float alfa;
 	float epsilon;
 	char Respuesta ;
@@ -212,6 +188,7 @@ void Maximizar(int estados,int decisiones){
 	// j = estados ya que j va de 0 hasta m y m son los estados   
 	// k = decisiones
 	
+	cout << endl;
 	cout << "Ingrese el numero maximo de iteraciones:";
 	cin >> N;	
 
@@ -236,27 +213,8 @@ void Maximizar(int estados,int decisiones){
 	}
 
 
-
-	cout << "Ingresa los costos:" << endl;
-	cout << "Para cada estado ingresa su decision correspondiente:" << endl;
-	
-
-	for(i = 0;i<estados;i++){
-		for(j=0;j < decisiones;j++){
-			cout << endl <<"Existe C[" << i+1 << "][" << j+1 << "]?:" << endl;
-			cout << "Si=s No=n:";
-			cin >> Respuesta;
-			if(Respuesta == 's' || Respuesta == 'S'){
-			cout << "Ingrese el costo:";
-			cin >> matrizCostos[i][j];
-			}
-			else if(Respuesta == 'n' || Respuesta == 'N'){
-			matrizCostos[i][j] = numChico;
-			}
-		}
-	}
-	
-
+ // Se pedia matriz de costos
+ 
  //limpiamos buffer con funcion cls
 
     // Mostramos el contenido de la matriz de transicion
@@ -276,7 +234,7 @@ void Maximizar(int estados,int decisiones){
 	for(i=0;i<estados;i++){
 			for(k=0;k<decisiones;k++){
 				if(matrizCostos[i][k] > numChico ){
-					cout << "C[" << i+1 << "][" << k+1 << "]:" << matrizCostos[i][k] << endl;
+					cout << "C[" << i << "][" << k+1 << "]:" << matrizCostos[i][k] << endl;
 					
 				}
 		 	}
@@ -379,9 +337,14 @@ void Maximizar(int estados,int decisiones){
 
 
 int main(){
-	
+
+	int i,j,k;
 	int estados,decisiones;	
 	char DecisionMaxMin;
+	char Respuesta;
+	double numChico = -9999999999;
+	double numGrande = 9999999999;
+		
 	
 	cout << "Maximizar(+) Minimizar(-):";
 	cin >> DecisionMaxMin;
@@ -392,16 +355,60 @@ int main(){
 	cout << "Digite el numero de estados:";
 	cin >> estados;
 
-
-	if(DecisionMaxMin == '+'){
-		cout << "Se maximizara" << endl;
-		Maximizar(estados,decisiones);
-	}
-	else if(DecisionMaxMin == '-'){
-		cout << "Se minimizara" << endl;
-		Minimizar(estados,decisiones);
-	}
 	
+	int** matrizCostos = new int*[estados];
+	for(i=0;i<estados;i++){
+		matrizCostos[i] = new int[decisiones];
+	}
+
+	if(DecisionMaxMin == '-'){
+		cout << endl;		
+		cout << "Se minimizara" << endl;
+		cout << endl;
+		cout << "Ingresa los costos:" << endl;
+	
+		for(i = 0;i<estados;i++){
+			for(j=0;j < decisiones;j++){
+				cout << endl <<"Existe C[" << i << "][" << j+1 << "]?:" << endl;
+				cout << "Si=s No=n:";
+				cin >> Respuesta;
+				if(Respuesta == 's' || Respuesta == 'S'){
+					cout << "Ingrese el costo:";
+					cin >> matrizCostos[i][j];
+				}
+				else if(Respuesta == 'n' || Respuesta == 'N'){
+					matrizCostos[i][j] = numGrande;
+				}
+			}
+		}
+		Minimizar(matrizCostos,estados,decisiones);
+		cout << endl;
+	}
+	else if(DecisionMaxMin == '+'){
+		cout << endl;
+		cout << "Se maximizara" << endl;
+		cout << endl;
+		cout << "Ingresa los costos:" << endl;
+
+		for(i = 0;i<estados;i++){
+			for(j=0;j < decisiones;j++){
+				cout << endl <<"Existe C[" << i+1 << "][" << j+1 << "]?:" << endl;
+				cout << "Si=s No=n:";
+				cin >> Respuesta;
+				if(Respuesta == 's' || Respuesta == 'S'){
+					cout << "Ingrese el costo:";
+					cin >> matrizCostos[i][j];
+				}
+				else if(Respuesta == 'n' || Respuesta == 'N'){
+					matrizCostos[i][j] = numChico;
+				}
+			}
+		}
+		Maximizar(matrizCostos,estados,decisiones);
+		cout << endl;
+	}
+
+
 
 return 0;
 }
