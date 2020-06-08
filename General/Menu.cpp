@@ -3,7 +3,7 @@
 #include <math.h>
 
 #include "EnumeracionExhaustiva.h"
-//#include "MejoramientoPoliticas.h"
+#include "MejoramientoPoliticas.h"
 #include "MejoramientoPoliticasDescuento.h"
 #include "AproximacionSucesiva.h"
 

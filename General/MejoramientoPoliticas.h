@@ -1,13 +1,10 @@
 #include<iostream>
-#include<wchar.h>
-#include<locale.h>
 
 using namespace std;
 
 
-void MaximizarMP(float Prob[10][10][10],float Costos[10][10],int num_edos,int num_dec){
+void MaximizarMP(float Prob[100][100][100],long int **Costos,int num_edos,int num_dec){
 	
-	int num_edos,num_dec;
 	int i,j,ii,jj,k,a,b,c,dec;
 	float suma;
 	char op;
@@ -322,7 +319,6 @@ void MaximizarMP(float Prob[10][10][10],float Costos[10][10],int num_edos,int nu
 
 void MinimizarMP(float Prob[100][100][100], long int **Costos, int num_edos, int num_dec){
 	
-	int num_edos,num_dec;
 	int i,j,ii,jj,k,a,b,c,dec;
 	float suma;
 	char op;
