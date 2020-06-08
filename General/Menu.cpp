@@ -58,7 +58,7 @@ int main(){
 	
 		for(i = 0;i<decisiones;i++){
 			for(j=0;j<estados;j++){
-				cout << endl <<"Existe C[" << i+1 << "][" << j+1 << "]?:" << endl;
+				cout << endl <<"Existe C[" << j+1 << "][" << i << "]?:" << endl;
 				cout << "Si=s No=n:";
 				cin >> Respuesta;
 				if(Respuesta == 's' || Respuesta == 'S'){
@@ -118,7 +118,7 @@ int main(){
 
 		for(i = 0;i<decisiones;i++){
 			for(j=0;j < estados;j++){
-				cout << endl <<"Existe C[" << i+1 << "][" << j+1 << "]?:" << endl;
+				cout << endl <<"Existe C[" << j+1 << "][" << i << "]?:" << endl;
 				cout << "Si=s No=n:";
 				cin >> Respuesta;
 				if(Respuesta == 's' || Respuesta == 'S'){
