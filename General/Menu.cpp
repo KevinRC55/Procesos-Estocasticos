@@ -95,7 +95,7 @@ int main(){
 			else if(Algoritmo == 2){
 				system("clear");
 				cout << endl;
-				//MinimizarMP(matrizTransicion,matrizCostos,estados,decisiones);		
+				MinimizarMP(matrizTransicion,matrizCostos,estados,decisiones);		
 				cout << endl;
 			}
 			else if(Algoritmo == 3){
@@ -161,7 +161,7 @@ int main(){
 				else if(Algoritmo == 2){
 					system("clear");
 					cout << endl;
-					//MaximizarMP(matrizTransicion,matrizCostos,estados,decisiones);
+					MaximizarMP(matrizTransicion,matrizCostos,estados,decisiones);
 					cout << endl;
 				}
 				else if(Algoritmo == 3){
