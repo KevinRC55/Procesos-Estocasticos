@@ -1,4 +1,8 @@
 #include <iostream>
+#include <math.h>
+
+#include "EnumeracionExhaustiva.h"
+#include "MejoramientoPoliticasDescuento.h"
 #include "AproximacionSucesiva.h"
 
 using namespace std;
@@ -80,7 +84,7 @@ int main(){
 
 			if(Algoritmo == 1){
 				cout << endl;
-				cout << "MinimizarEnumeracionExhaustivaPoliticas" << endl;
+				MinimizarEnumeracionExhaustiva(matrizTransicion,matrizCostos,estados,decisiones);
 				cout << endl;
 			}
 			else if(Algoritmo == 2){
@@ -141,7 +145,7 @@ int main(){
 
 				if(Algoritmo == 1){
 					cout << endl;
-					cout << "Maximizar EnumeracionExhaustivaPoliticas" << endl;
+					MaximizarEnumeracionExhaustiva(matrizTransicion,matrizCostos,estados,decisiones);
 					cout << endl;
 				}
 				else if(Algoritmo == 2){
