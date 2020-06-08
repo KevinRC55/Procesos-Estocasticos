@@ -2,6 +2,7 @@
 #include <math.h>
 
 #include "EnumeracionExhaustiva.h"
+//#include "MejoramientoPoliticas.h"
 #include "MejoramientoPoliticasDescuento.h"
 #include "AproximacionSucesiva.h"
 
@@ -88,8 +89,8 @@ int main(){
 				cout << endl;
 			}
 			else if(Algoritmo == 2){
-					cout << endl;
-				cout << "MinimizarMejoramiento de politicas" << endl;
+				cout << endl;
+				//MinimizarMP(matrizTransicion,matrizCostos,estados,decisiones);		
 				cout << endl;
 			}
 			else if(Algoritmo == 3){
@@ -150,7 +151,7 @@ int main(){
 				}
 				else if(Algoritmo == 2){
 					cout << endl;
-					cout << "Maximizar Mejoramiento de politicas" << endl;
+					//MaximizarMP(matrizTransicion,matrizCostos,estados,decisiones);
 					cout << endl;
 				}
 				else if(Algoritmo == 3){
