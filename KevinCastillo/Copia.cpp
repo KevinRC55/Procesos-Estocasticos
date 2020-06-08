@@ -3,7 +3,7 @@
 using namespace std;
 	
 	
-void Minimizar(float matrizTransicion[100][100][100],int **matrizCostos,int estados,int decisiones){
+void Minimizar(float matrizTransicion[100][100][100],long int **matrizCostos,int estados,int decisiones){
 	
 	int i,j,k;
 	int N; // Numero maximo de iteraciones
@@ -156,7 +156,7 @@ void Minimizar(float matrizTransicion[100][100][100],int **matrizCostos,int esta
 }
 
 
-void Maximizar(float matrizTransicion[100][100][100],int **matrizCostos,int estados,int decisiones){
+void Maximizar(float matrizTransicion[100][100][100],long int **matrizCostos,int estados,int decisiones){
 	
 	int i,j,k;
 	int N; // Numero maximo de iteraciones
@@ -346,9 +346,9 @@ int main(){
 	
 
 	// Hacemos referencia a la matriz de costos
-	int** matrizCostos = new int*[estados];
+	long int** matrizCostos = new long int*[estados];
 	for(i=0;i<estados;i++){
-		matrizCostos[i] = new int[decisiones];
+		matrizCostos[i] = new long int[decisiones];
 	}
 	
 	if(DecisionMaxMin == '-'){
