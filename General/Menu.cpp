@@ -9,6 +9,7 @@ int main(){
 	int estados,decisiones;	
 	char DecisionMaxMin;
 	char Respuesta;
+	char Algoritmo;
 	double numChico = -9999999999;
 	double numGrande = 9999999999;
 	float matrizTransicion[100][100][100];	
@@ -91,6 +92,18 @@ int main(){
 		cout << endl;
 	}
 
+	cout << endl;
+	
+	cout << "Procesos Markoviano de decisiones:" << endl;
+	
+	cout << "1. Enumeracion Exhaustiva de politicas" << endl;
+	cout << "2. Mejoramiento de politicas" << endl;
+	cout << "3. Mejoramiento de politicas con descuentos" << endl;
+	cout << "4. Aproximaciones sucesivas" << endl;
+	cout << "Para salir presione cualquier tecla" << endl;
+	
+	cout << "Seleccione una opcion:";
+	cin >> Algoritmo;	
 
 
 return 0;
