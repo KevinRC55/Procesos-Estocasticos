@@ -56,9 +56,9 @@ int main(){
 		//Se ingresa la matriz de costos
 		cout << "Ingresa los costos:" << endl;
 	
-		for(i = 0;i<estados;i++){
-			for(j=0;j < decisiones;j++){
-				cout << endl <<"Existe C[" << i << "][" << j+1 << "]?:" << endl;
+		for(i = 0;i<decisiones;i++){
+			for(j=0;j<estados;j++){
+				cout << endl <<"Existe C[" << i+1 << "][" << j+1 << "]?:" << endl;
 				cout << "Si=s No=n:";
 				cin >> Respuesta;
 				if(Respuesta == 's' || Respuesta == 'S'){
@@ -116,8 +116,8 @@ int main(){
 		cout << endl;
 		cout << "Ingresa los costos:" << endl;
 
-		for(i = 0;i<estados;i++){
-			for(j=0;j < decisiones;j++){
+		for(i = 0;i<decisiones;i++){
+			for(j=0;j < estados;j++){
 				cout << endl <<"Existe C[" << i+1 << "][" << j+1 << "]?:" << endl;
 				cout << "Si=s No=n:";
 				cin >> Respuesta;

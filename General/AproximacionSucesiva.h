@@ -48,10 +48,10 @@ void MinimizarAproximacionSucesiva(float matrizTransicion[100][100][100],long in
 
 	
     cout << endl << "Matriz de costos:"<< endl;
-	for(i=0;i<estados;i++){
-			for(k=0;k<decisiones;k++){
+	for(i=0;i<decisiones;i++){
+			for(k=0;k<estados;k++){
 				if(matrizCostos[i][k] < numGrande ){
-					cout << "C[" << i << "][" << k+1 << "]:" << matrizCostos[i][k] << endl;					
+					cout << "C[" << i+1 << "][" << k+1 << "]:" << matrizCostos[i][k] << endl;					
 				}
 		 	}
       }
@@ -203,10 +203,10 @@ void MaximizarAproximacionSucesiva(float matrizTransicion[100][100][100],long in
 
 
     cout << endl << "Matriz de costos:"<< endl;
-	for(i=0;i<estados;i++){
-			for(k=0;k<decisiones;k++){
+	for(i=0;i<decisiones;i++){
+			for(k=0;k<estados;k++){
 				if(matrizCostos[i][k] > numChico ){
-					cout << "C[" << i << "][" << k+1 << "]:" << matrizCostos[i][k] << endl;
+					cout << "C[" << i+1 << "][" << k+1 << "]:" << matrizCostos[i][k] << endl;
 					
 				}
 		 	}
