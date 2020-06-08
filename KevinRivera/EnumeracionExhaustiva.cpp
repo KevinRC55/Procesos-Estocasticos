@@ -285,7 +285,7 @@ void MaximizarEnumeracionExhaustiva(float mt[10][10][10], float csts[10][10], in
 		float e=0;
 		for(i=0;i<=stds-1;i++){
 			j = pltcs[kk][i]-1;
-			e+=csts[j][i]*v[i]; 
+			e+=csts[i][j]*v[i]; 
 		}
 
 		cout<<"\n\n\n\t\t ||Costo asociado a la politica||\n\n";
@@ -597,7 +597,7 @@ void MinimizarEnumeracionExhaustiva(float mt[10][10][10], float csts[10][10], in
 		float e=0;
 		for(i=0;i<=stds-1;i++){
 			j = pltcs[kk][i]-1;
-			e+=csts[j][i]*v[i]; 
+			e+=csts[i][j]*v[i]; 
 		}
 
 		cout<<"\n\n\n\t\t ||Costo asociado a la politica||\n\n";
