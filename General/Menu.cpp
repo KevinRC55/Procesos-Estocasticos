@@ -9,7 +9,7 @@ int main(){
 	int estados,decisiones;	
 	char DecisionMaxMin;
 	char Respuesta;
-	char Algoritmo;
+	int Algoritmo;
 	double numChico = -9999999999;
 	double numGrande = 9999999999;
 	float matrizTransicion[100][100][100];	
@@ -65,8 +65,45 @@ int main(){
 				}
 			}
 		}
-		MinimizarAproximacionSucesiva(matrizTransicion,matrizCostos,estados,decisiones);
 		cout << endl;
+		cout << "Procesos Markoviano de decisiones:" << endl;
+	do{
+		cout << "1. Enumeracion Exhaustiva de politicas" << endl;
+		cout << "2. Mejoramiento de politicas" << endl;
+		cout << "3. Mejoramiento de politicas con descuentos" << endl;
+		cout << "4. Aproximaciones sucesivas" << endl;
+		cout << "Para salir presione cualquier tecla" << endl;
+		cout << endl;
+		cout << "Seleccione una opcion:";
+		cin >> Algoritmo;
+	
+
+			if(Algoritmo == 1){
+				cout << endl;
+				cout << "MinimizarEnumeracionExhaustivaPoliticas" << endl;
+				cout << endl;
+			}
+			else if(Algoritmo == 2){
+					cout << endl;
+				cout << "MinimizarMejoramiento de politicas" << endl;
+				cout << endl;
+			}
+			else if(Algoritmo == 3){
+				cout << endl;
+				cout << "Minimizar Mejoramiento de politicas con descuento" << endl;
+				cout << endl;
+			}
+			else if(Algoritmo == 4){
+				MinimizarAproximacionSucesiva(matrizTransicion,matrizCostos,estados,decisiones);
+				cout << endl;
+			}
+			else{
+				break;
+			}	
+
+		}while(Algoritmo == 1 || Algoritmo==2 || Algoritmo == 3 || Algoritmo == 4);
+		
+
 	}
 	else if(DecisionMaxMin == '+'){
 		cout << endl;
@@ -88,24 +125,45 @@ int main(){
 				}
 			}
 		}
-		MaximizarAproximacionSucesiva(matrizTransicion,matrizCostos,estados,decisiones);
+
+
 		cout << endl;
+		cout << "Procesos Markoviano de decisiones:" << endl;
+		do{
+			cout << "1. Enumeracion Exhaustiva de politicas" << endl;
+			cout << "2. Mejoramiento de politicas" << endl;
+			cout << "3. Mejoramiento de politicas con descuentos" << endl;
+			cout << "4. Aproximaciones sucesivas" << endl;
+			cout << "Para salir presione cualquier tecla" << endl;
+			cout << endl;
+			cout << "Seleccione una opcion:";
+			cin >> Algoritmo;
+
+				if(Algoritmo == 1){
+					cout << endl;
+					cout << "Maximizar EnumeracionExhaustivaPoliticas" << endl;
+					cout << endl;
+				}
+				else if(Algoritmo == 2){
+					cout << endl;
+					cout << "Maximizar Mejoramiento de politicas" << endl;
+					cout << endl;
+				}
+				else if(Algoritmo == 3){
+					cout << endl;
+					cout << "Maximizar Mejoramiento de politicas con descuento" << endl;
+					cout << endl;
+				}
+				else if(Algoritmo == 4){
+					MaximizarAproximacionSucesiva(matrizTransicion,matrizCostos,estados,decisiones);
+					cout << endl;
+				}	
+
+		}while(Algoritmo == 1 || Algoritmo==2 || Algoritmo == 3 || Algoritmo == 4);
+
 	}
 
-	cout << endl;
 	
-	cout << "Procesos Markoviano de decisiones:" << endl;
-	
-	cout << "1. Enumeracion Exhaustiva de politicas" << endl;
-	cout << "2. Mejoramiento de politicas" << endl;
-	cout << "3. Mejoramiento de politicas con descuentos" << endl;
-	cout << "4. Aproximaciones sucesivas" << endl;
-	cout << "Para salir presione cualquier tecla" << endl;
-	
-	cout << "Seleccione una opcion:";
-	cin >> Algoritmo;	
-
-
 return 0;
 }
 
