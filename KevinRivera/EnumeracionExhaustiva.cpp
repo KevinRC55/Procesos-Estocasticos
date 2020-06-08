@@ -101,14 +101,6 @@ void MaximizarEnumeracionExhaustiva(float mt[10][10][10], float csts[10][10], in
 
 	for(kk=0;kk<=pp-1;kk++){
 
-		for(k=0;k<=dcsns-1;k++){
-			for(i=0;i<=stds-1;i++){
-				for(j=0;j<=stds-1;j++){
-					mt[i][j][k] = aux[i][j][k];
-				}	
-			}
-		}
-
 		cout<<"\n\n\n ||POLITICA R(";
 
 		for(i=0;i<=stds-1;i++){
@@ -311,6 +303,15 @@ void MaximizarEnumeracionExhaustiva(float mt[10][10][10], float csts[10][10], in
 		cout<<pltcs[pos][j]<<",";
 	}
 	cout<<")";
+
+	for(k=0;k<=dcsns-1;k++){
+			for(i=0;i<=stds-1;i++){
+				for(j=0;j<=stds-1;j++){
+					mt[i][j][k] = aux[i][j][k];
+				}	
+			}
+		}
+
 	cout<<"\n\n";
 	system("pause");
 }
@@ -412,14 +413,6 @@ void MinimizarEnumeracionExhaustiva(float mt[10][10][10], float csts[10][10], in
 	}
 
 	for(kk=0;kk<=pp-1;kk++){
-
-		for(k=0;k<=dcsns-1;k++){
-			for(i=0;i<=stds-1;i++){
-				for(j=0;j<=stds-1;j++){
-					mt[i][j][k] = aux[i][j][k];
-				}	
-			}
-		}
 
 		cout<<"\n\n\n ||POLITICA R(";
 
@@ -623,6 +616,15 @@ void MinimizarEnumeracionExhaustiva(float mt[10][10][10], float csts[10][10], in
 		cout<<pltcs[pos][j]<<",";
 	}
 	cout<<")";
+
+	for(k=0;k<=dcsns-1;k++){
+			for(i=0;i<=stds-1;i++){
+				for(j=0;j<=stds-1;j++){
+					mt[i][j][k] = aux[i][j][k];
+				}	
+			}
+		}
+
 	cout<<"\n\n";
 	system("pause");
 }
@@ -694,9 +696,9 @@ int main(){
 	{
 	case '+':
 		cout<<"\n\t\t||Costos||\n\t(Si la relacion de costo no esxiste ingrese: -1)\n\n";
-		for(i=0;i<=decisiones-1;i++){
-			for(j=0;j<=estados-1;j++){
-				cout<<"Costo de tomar la decision "<<i+1<<" en el estado "<<j+1<<":	";
+		for(i=0;i<=estados-1;i++){
+			for(j=0;j<=decisiones-1;j++){
+				cout<<"Costo de tomar la decision "<<j+1<<" en el estado "<<i+1<<":	";
 				cin>>costos[i][j];
 				if(costos[i][j]==-1){
 					costos[i][j] = -99999;
@@ -709,9 +711,9 @@ int main(){
 	
 	case '-':
 		cout<<"\n\t\t||Costos||\n\t(Si la relacion de costo no esxiste ingrese -1\n\n";
-		for(i=0;i<=decisiones-1;i++){
-			for(j=0;j<=estados-1;j++){
-				cout<<"Costo de tomar la decision "<<i+1<<" en el estado "<<j+1<<":	";
+		for(i=0;i<=estados-1;i++){
+			for(j=0;j<=decisiones-1;j++){
+				cout<<"Costo de tomar la decision "<<j+1<<" en el estado "<<i+1<<":	";
 				cin>>costos[i][j];
 				if(costos[i][j]==-1){
 					costos[i][j] = 99999;
