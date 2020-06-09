@@ -28,7 +28,7 @@ int main(){
 	
 	cout << "Digite el numero de estados:";
 	cin >> estados;
-
+	
 	//Hacemos referencia a la matriz de transiciones
 		cout << endl;
 		//Se ingresa la matriz de transicion
@@ -41,7 +41,8 @@ int main(){
 				}
 			}
 		cout << endl;
-		}	
+		}
+		fflush(stdin);	
 		system("clear");
 	
 
@@ -72,6 +73,7 @@ int main(){
 				}
 			}
 		}
+		fflush(stdin);
 		system("clear");
 
 		cout << endl;
@@ -90,23 +92,27 @@ int main(){
 				system("clear");
 				cout << endl;
 				MinimizarEnumeracionExhaustiva(matrizTransicion,matrizCostos,estados,decisiones);
+				fflush(stdin);
 				cout << endl;
 			}
 			else if(Algoritmo == 2){
 				system("clear");
 				cout << endl;
-				MinimizarMP(matrizTransicion,matrizCostos,estados,decisiones);		
+				MinimizarMP(matrizTransicion,matrizCostos,estados,decisiones);	
+				fflush(stdin);	
 				cout << endl;
 			}
 			else if(Algoritmo == 3){
 				cout << endl;
 				system("clear");
 				mejorPoliDiscMin(matrizCostos,matrizTransicion,estados, decisiones);
+				fflush(stdin);
 				cout << endl;
 			}
 			else if(Algoritmo == 4){
 				system("clear");
 				MinimizarAproximacionSucesiva(matrizTransicion,matrizCostos,estados,decisiones);
+				fflush(stdin);
 				cout << endl;
 			}
 			else{
@@ -137,7 +143,7 @@ int main(){
 				}
 			}
 		}
-
+		fflush(stdin);
 		system("clear");
 
 		cout << endl;
@@ -156,23 +162,27 @@ int main(){
 					system("clear");
 					cout << endl;
 					MaximizarEnumeracionExhaustiva(matrizTransicion,matrizCostos,estados,decisiones);
+					fflush(stdin);
 					cout << endl;
 				}
 				else if(Algoritmo == 2){
 					system("clear");
 					cout << endl;
 					MaximizarMP(matrizTransicion,matrizCostos,estados,decisiones);
+					fflush(stdin);
 					cout << endl;
 				}
 				else if(Algoritmo == 3){
 					system("clear");
 					cout << endl;
 					mejorPoliDiscMax(matrizCostos,matrizTransicion,estados, decisiones);
+					fflush(stdin);
 					cout << endl;
 				}
 				else if(Algoritmo == 4){
 					system("clear");
 					MaximizarAproximacionSucesiva(matrizTransicion,matrizCostos,estados,decisiones);
+					fflush(stdin);
 					cout << endl;
 				}	
 
