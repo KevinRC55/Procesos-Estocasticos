@@ -24,9 +24,9 @@ void MaximizarMP(float Prob[100][100][100],long double **Costos,int num_edos,int
 	
 //MATRICES
 	system("clear");
-	cout<<"\n\n\tMatrices de transición y Costos\n\n";
+	cout<<"\n\n\tMatrices de transicion y Costos\n\n";
 	for(k=0;k<=num_dec-1;k++){
-		cout<<"Decisión "<<k+1<<"\n";
+		cout<<"Decision "<<k+1<<"\n";
 		for(i=0;i<=num_edos-1;i++){
 			for(j=0;j<=num_edos-1;j++){
 				cout<<Prob[i][j][k]<<"	";
@@ -59,12 +59,12 @@ void MaximizarMP(float Prob[100][100][100],long double **Costos,int num_edos,int
 	
 	//POLITICA INICIAL
 	system("clear");
-	cout<<"\n\n\tPolítica Inicial\n\n";
+	cout<<"\n\n\tPolitica Inicial\n\n";
 	int Pol[num_edos];
 	int nPol[num_edos];
 	for(i=0;i<=num_edos-1;i++){
 		do{
-			cout<<"Decisión a tomar en el estado "<<i+1<<":	";
+			cout<<"Decision a tomar en el estado "<<i+1<<":	";
 			cin>>Pol[i];
 			Pol[i]=Pol[i]-1;
 		}while(Pol[i]<0 || Pol[i]>=num_dec);
@@ -76,7 +76,7 @@ void MaximizarMP(float Prob[100][100][100],long double **Costos,int num_edos,int
 	do{
 		system("clear");
 		//MATRIZ DE LA POLÍTICA
-		cout<<"\n\n\tMatriz de la política\n";
+		cout<<"\n\n\tMatriz de la politica\n";
 		k=0;
 		for(i=0;i<=num_edos-1;i++){
 			for(j=0;j<=num_edos-1;j++){
@@ -238,7 +238,7 @@ void MaximizarMP(float Prob[100][100][100],long double **Costos,int num_edos,int
 		system("clear");
 		
 		//MEJORAMIENTO DE LA POLÍTICA
-		cout<<"\n\n\tMejoramiento de la política\n\n";
+		cout<<"\n\n\tMejoramiento de la politica\n\n";
 		int decs[num_edos];
 		float cost_p[num_dec][num_edos];
 		for(i=0;i<=num_edos-1;i++){
@@ -261,7 +261,7 @@ void MaximizarMP(float Prob[100][100][100],long double **Costos,int num_edos,int
 		for(i=0;i<=num_edos-1;i++){
 			if(decs[i]==1){
 				cout<<"Estado "<<i+1<<":\n\n";
-				cout<<"\tDecisión única"<<"\n\n";
+				cout<<"\tDecision unica"<<"\n\n";
 				nPol[i]=Pol[i];
 			}else{
 				cout<<"Estado "<<i+1<<":\n\n";
@@ -272,7 +272,7 @@ void MaximizarMP(float Prob[100][100][100],long double **Costos,int num_edos,int
 							cost_p[ii][i]+=Prob[i][j][ii]*B[j+1];
 						}
 						cost_p[ii][i]-=B[i+1];
-						cout<<"\tDecisión "<< ii+1<<"\t";
+						cout<<"\tDecision "<< ii+1<<"\t";
 						cout<<cost_p[ii][i]<<"\n";
 					}
 				}
@@ -299,15 +299,15 @@ void MaximizarMP(float Prob[100][100][100],long double **Costos,int num_edos,int
 		}
 		
 		if(ind==num_edos){//FIN
-			cout<<"\n\n\tLA POLÍTICA ES ÓPTIMA\n\n";
+			cout<<"\n\n\tLA POLITICA ES OPTIMA\n\n";
 			for(i=0;i<=num_edos-1;i++){
-				cout<<"Tomar la decisión "<<nPol[i]+1<<" en el estado "<<i+1<<"\n";
+				cout<<"Tomar la decision "<<nPol[i]+1<<" en el estado "<<i+1<<"\n";
 			}
 			Final=1;
 		}else{//NUEVA POLÍTICA
-			cout<<"\n\n\tLA POLÍTICA NO ES ÓPTIMA. NUEVA POLÍTICA:\n\n";
+			cout<<"\n\n\tLA POLITICA NO ES OPTIMA. NUEVA POLITICA:\n\n";
 			for(i=0;i<=num_edos-1;i++){
-				cout<<"Tomar la decisión "<<nPol[i]+1<<" en el estado "<<i+1<<"\n";
+				cout<<"Tomar la decision "<<nPol[i]+1<<" en el estado "<<i+1<<"\n";
 			}
 			for(i=0;i<=num_edos-1;i++){
 				Pol[i]=nPol[i];
@@ -339,9 +339,9 @@ void MinimizarMP(float Prob[100][100][100], long double **Costos, int num_edos, 
 	//system("pause");
 	//MATRICES
 	system("clear");
-	cout<<"\n\n\tMatrices de transición y Costos\n\n";
+	cout<<"\n\n\tMatrices de transicion y Costos\n\n";
 	for(k=0;k<=num_dec-1;k++){
-		cout<<"Decisión "<<k+1<<"\n";
+		cout<<"Decision "<<k+1<<"\n";
 		for(i=0;i<=num_edos-1;i++){
 			for(j=0;j<=num_edos-1;j++){
 				cout<<Prob[i][j][k]<<"	";
@@ -374,12 +374,12 @@ void MinimizarMP(float Prob[100][100][100], long double **Costos, int num_edos, 
 	
 	//POLITICA INICIAL
 	system("clear");
-	cout<<"\n\n\tPolítica Inicial\n\n";
+	cout<<"\n\n\tPolitica Inicial\n\n";
 	int Pol[num_edos];
 	int nPol[num_edos];
 	for(i=0;i<=num_edos-1;i++){
 		do{
-			cout<<"Decisión a tomar en el estado "<<i+1<<":	";
+			cout<<"Decision a tomar en el estado "<<i+1<<":	";
 			cin>>Pol[i];
 			Pol[i]=Pol[i]-1;
 		}while(Pol[i]<0 || Pol[i]>=num_dec);
@@ -391,7 +391,7 @@ void MinimizarMP(float Prob[100][100][100], long double **Costos, int num_edos, 
 	do{
 		system("clear");
 		//MATRIZ DE LA POLÍTICA
-		cout<<"\n\n\tMatriz de la política\n";
+		cout<<"\n\n\tMatriz de la politica\n";
 		k=0;
 		for(i=0;i<=num_edos-1;i++){
 			for(j=0;j<=num_edos-1;j++){
@@ -553,7 +553,7 @@ void MinimizarMP(float Prob[100][100][100], long double **Costos, int num_edos, 
 		system("clear");
 		
 		//MEJORAMIENTO DE LA POLÍTICA
-		cout<<"\n\n\tMejoramiento de la política\n\n";
+		cout<<"\n\n\tMejoramiento de la politica\n\n";
 		int decs[num_edos];
 		float cost_p[num_dec][num_edos];
 		for(i=0;i<=num_edos-1;i++){
@@ -576,7 +576,7 @@ void MinimizarMP(float Prob[100][100][100], long double **Costos, int num_edos, 
 		for(i=0;i<=num_edos-1;i++){
 			if(decs[i]==1){
 				cout<<"Estado "<<i+1<<":\n\n";
-				cout<<"\tDecisión única"<<"\n\n";
+				cout<<"\tDecision unica"<<"\n\n";
 				nPol[i]=Pol[i];
 			}else{
 				cout<<"Estado "<<i+1<<":\n\n";
@@ -617,15 +617,15 @@ void MinimizarMP(float Prob[100][100][100], long double **Costos, int num_edos, 
 		}
 		
 		if(ind==num_edos){//FIN
-			cout<<"\n\n\tLA POLÍTICA ES ÓPTIMA\n\n";
+			cout<<"\n\n\tLA POLITICA ES OPTIMA\n\n";
 			for(i=0;i<=num_edos-1;i++){
-				cout<<"Tomar la decisión "<<nPol[i]+1<<" en el estado "<<i+1<<"\n";
+				cout<<"Tomar la decision "<<nPol[i]+1<<" en el estado "<<i+1<<"\n";
 			}
 			Final=1;
 		}else{//NUEVA POLÍTICA
-			cout<<"\n\n\tLA POLÍTICA NO ES ÓPTIMA. NUEVA POLÍTICA:\n\n";
+			cout<<"\n\n\tLA POLÍTICA NO ES OPTIMA. NUEVA POLITICA:\n\n";
 			for(i=0;i<=num_edos-1;i++){
-				cout<<"Tomar la decisión "<<nPol[i]+1<<" en el estado "<<i+1<<"\n";
+				cout<<"Tomar la decision "<<nPol[i]+1<<" en el estado "<<i+1<<"\n";
 			}
 			for(i=0;i<=num_edos-1;i++){
 				Pol[i]=nPol[i];
