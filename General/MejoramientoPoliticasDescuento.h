@@ -2,15 +2,19 @@
 #include<stdlib.h>
 #include<iostream>
 #include<algorithm>
-//#include<conio.h>
 #include<math.h>
+
 using namespace std;
 
-int Stat,Desic,i,j,k,Total;
-char opc;
 
-void mejorPoliDiscMax(float C[][50],float M[][50][50],int x, int y){
-	system("cls");
+void mejorPoliDiscMax(long int **C,float M[100][100][100],int x, int y){
+
+	int Stat,Desic,i,j,k,Total;
+	char opc;
+		
+	
+	system("clear");
+
 	cout<<"\n\t\t\tPROCESOS MARKOVIANOS DE DESICIÓN";
 	cout<<"\n\t\tMejoramiento de Políticas con Descuento";
 	cout<<"\n\t\tMaximización";
@@ -32,7 +36,7 @@ void mejorPoliDiscMax(float C[][50],float M[][50][50],int x, int y){
 		}while(Pol[i]<0 || Pol[i]>=Stat);
 	}	
 	
-	system("cls");
+	system("clear");
 	//Impresión de la política arbitraria
 	cout<<"\n\tLa política arbitraria es: (";
 	for(i=0;i<=Stat-1;i++){
@@ -50,7 +54,7 @@ void mejorPoliDiscMax(float C[][50],float M[][50][50],int x, int y){
 	
 	//ITERACIÓN DE POLÍTICAS
 	do{
-		system("cls");
+		system("clear");
 		//MATRIZ DE LA POLÍTICA
 		cout<<"\n\n\tEl sistema de ecuaciones quedaría de la siguiente manera\n";
 		
@@ -95,8 +99,8 @@ void mejorPoliDiscMax(float C[][50],float M[][50][50],int x, int y){
 			B[i]=C[Pol[k]][i];
 			k+=1;
 		}
-		system("pause");
-		system("cls");
+		//system("pause");
+		system("clear");
 		
 		cout<<"\n\n\tGauss-Jordan\n\n";
 		cout<<"\n\nMatriz de Costos Promedio\n";
@@ -221,8 +225,8 @@ void mejorPoliDiscMax(float C[][50],float M[][50][50],int x, int y){
 			cout<<"\n\n";
 			k-=1;
 		}
-		system("pause");
-		system("cls");
+		//system("pause");
+		system("clear");
 		
 		//MEJORAMIENTO DE LA POLÍTICA
 		cout<<"\n\n\tMejoramiento de la política\n\n";
@@ -305,12 +309,17 @@ void mejorPoliDiscMax(float C[][50],float M[][50][50],int x, int y){
 				Pol[i]=nPol[i];
 			}
 		}
-		system("pause");
+		//system("pause");
 	}while(Final==0);
 }
 
-void mejorPoliDiscMin(float C[][50],float M[][50][50],int x, int y){
-	system("cls");
+void mejorPoliDiscMin(long int **C,float M[100][100][100],int x, int y){
+	
+	int Stat,Desic,i,j,k,Total;
+	char opc;
+
+
+	system("clear");
 	cout<<"\n\t\t\tPROCESOS MARKOVIANOS DE DESICIÓN";
 	cout<<"\n\t\tMejoramiento de Políticas con Descuento";
 	cout<<"\n\t\tMinimzación";
@@ -332,7 +341,7 @@ void mejorPoliDiscMin(float C[][50],float M[][50][50],int x, int y){
 		}while(Pol[i]<0 || Pol[i]>=Stat);
 	}	
 	
-	system("cls");
+	system("clear");
 	//Impresión de la política arbitraria
 	cout<<"\n\tLa política arbitraria es: (";
 	for(i=0;i<=Stat-1;i++){
@@ -350,7 +359,7 @@ void mejorPoliDiscMin(float C[][50],float M[][50][50],int x, int y){
 	
 	//ITERACIÓN DE POLÍTICAS
 	do{
-		system("cls");
+		system("clear");
 		//MATRIZ DE LA POLÍTICA
 		cout<<"\n\n\tEl sistema de ecuaciones quedaría de la siguiente manera\n";
 		
@@ -395,8 +404,8 @@ void mejorPoliDiscMin(float C[][50],float M[][50][50],int x, int y){
 			B[i]=C[Pol[k]][i];
 			k+=1;
 		}
-		system("pause");
-		system("cls");
+		//system("pause");
+		system("clear");
 		
 		cout<<"\n\n\tGauss-Jordan\n\n";
 		cout<<"\n\nMatriz de Costos Promedio\n";
@@ -521,8 +530,8 @@ void mejorPoliDiscMin(float C[][50],float M[][50][50],int x, int y){
 			cout<<"\n\n";
 			k-=1;
 		}
-		system("pause");
-		system("cls");
+		//system("pause");
+		system("clear");
 		
 		//MEJORAMIENTO DE LA POLÍTICA
 		cout<<"\n\n\tMejoramiento de la política\n\n";
@@ -605,66 +614,7 @@ void mejorPoliDiscMin(float C[][50],float M[][50][50],int x, int y){
 				Pol[i]=nPol[i];
 			}
 		}
-		system("pause");
+		//system("pause");
 	}while(Final==0);
 }
 	
-void readData(){
-	system("cls");
-	cout<<"\n\t\t\tPROCESOS MARKOVIANOS DE DESICIÓN";
-	cout<<"\n\t\tMejoramiento de Políticas con Descuento";
-	float Costs[50][50];
-	float Matrix[50][50][50];
-	char desic;
-
-	cout<<"\n\n\tIngrese el número de estados: ";
-	cin>>Stat;
-	cout<<"\n\tIngrese el número de desiciones: ";
-	cin>>Desic;
-	
-	for(k=0;k<=Desic-1;k++){
-		cout<<"\n\tIngresa la matriz de probabilidad para cuando k = "<<k+1;
-		for(i=0;i<=Stat-1;i++){
-			for(j=0;j<=Stat-1;j++){
-				cout<<"\n\tIngrese la probabilidad de"<<"["<<i+1<<","<<j+1<<"]:";
-				cin>>Matrix[i][j][k];
-			}
-		}	
-	}
-			
-	cout<<"\n\t\t¡Probabilidades leidas exitosamente!\n\n\n\t";
-	system("pause;");
-	system("cls");
-	
-	cout<<"\n\tSi desea maximizar presionar '+' en caso de querer minimizar presionar '-'\n\t";
-	cout<<"Opción: ";cin>>opc;
-	if(opc=='+'){
-		cout<<"\n\tIngrese un costo muy pequeño para costos inexistentes";
-	}
-	else{
-		cout<<"\n\tIngrese un costo muy grande para costos inexistentes";
-	}
-	//Lectura de Costos
-	for(i=0;i<=Stat-1;i++){
-		for(j=0;j<=Desic-1;j++){
-			cout<<"\n\tIngrese el costo"<<"["<<i+1<<","<<j+1<<"]: $";
-			cin>>Costs[i][j];
-		}
-	}
-	
-	cout<<"\n\t\t¡Costos leidos exitosamente!\n\n\n\t";
-	
-	system("pause");
-	system("cls");
-	
-	
-	if(opc=='+'){
-		mejorPoliDiscMax(Costs,Matrix,50,50);;
-	}
-	else if(opc=='-'){
-		mejorPoliDiscMin(Costs,Matrix,50,50);
-	}
-		
-}
-	
-

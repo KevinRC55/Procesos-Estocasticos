@@ -102,6 +102,7 @@ int main(){
 				cout << endl;
 				system("clear");
 				cout << "Minimizar Mejoramiento de politicas con descuento" << endl;
+				mejorPoliDiscMin(matrizCostos,matrizTransicion,estados, decisiones);
 				cout << endl;
 			}
 			else if(Algoritmo == 4){
@@ -167,7 +168,7 @@ int main(){
 				else if(Algoritmo == 3){
 					system("clear");
 					cout << endl;
-					cout << "Maximizar Mejoramiento de politicas con descuento" << endl;
+					mejorPoliDiscMax(matrizCostos,matrizTransicion,estados, decisiones);
 					cout << endl;
 				}
 				else if(Algoritmo == 4){
