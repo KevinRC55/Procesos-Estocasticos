@@ -101,7 +101,6 @@ int main(){
 			else if(Algoritmo == 3){
 				cout << endl;
 				system("clear");
-				cout << "Minimizar Mejoramiento de politicas con descuento" << endl;
 				mejorPoliDiscMin(matrizCostos,matrizTransicion,estados, decisiones);
 				cout << endl;
 			}

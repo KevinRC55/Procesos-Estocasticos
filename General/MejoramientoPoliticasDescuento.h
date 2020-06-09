@@ -4,30 +4,28 @@
 #include<algorithm>
 #include<math.h>
 
+
 using namespace std;
 
+void mejorPoliDiscMax(long double **C,float M[100][100][100],int Stat, int Desic){
 
-void mejorPoliDiscMax(long double **C,float M[100][100][100],int x, int y){
-
-	int Stat,Desic,i,j,k,Total;
+	int i,j,k,Total;
 	char opc;
-		
-	
-	system("clear");
 
-	cout<<"\n\t\t\tPROCESOS MARKOVIANOS DE DESICIÓN";
-	cout<<"\n\t\tMejoramiento de Políticas con Descuento";
-	cout<<"\n\t\tMaximización";
-	C[x][y];
-	M[Desic][x][y];
-	int Pol[Stat];
-	int nPol[Stat];
-	int dec,ii,jj;
-	float Vi[Stat];
-	float alpha;
+		
+	system("clear");
+	cout<<"\n\t\t\tPROCESOS MARKOVIANOS DE DESICION";
+	cout<<"\n\t\tMejoramiento de Politicas con Descuento";
+	cout<<"\n\t\tMaximizacion";
+	
+	long int Pol[Stat];
+	long int nPol[Stat];
+	long int dec,ii,jj;
+	double Vi[Stat];
+	double alpha;
 
 	//Elección de la política arbitraria
-	cout<<"\n\n\tPolítica Arbitraria";
+	cout<<"\n\n\tPolitica Arbitraria";
 	for(i=0;i<=Stat-1;i++){
 		do{
 			cout<<"\n\tIngrese el elemento "<<i+1<<" del vector de la política arbitraria:";
@@ -38,7 +36,7 @@ void mejorPoliDiscMax(long double **C,float M[100][100][100],int x, int y){
 	
 	system("clear");
 	//Impresión de la política arbitraria
-	cout<<"\n\tLa política arbitraria es: (";
+	cout<<"\n\tLa politica arbitraria es: (";
 	for(i=0;i<=Stat-1;i++){
 		if(i<=Stat-1){
 			cout<<Pol[i]<<",";	
@@ -229,9 +227,9 @@ void mejorPoliDiscMax(long double **C,float M[100][100][100],int x, int y){
 		system("clear");
 		
 		//MEJORAMIENTO DE LA POLÍTICA
-		cout<<"\n\n\tMejoramiento de la política\n\n";
-		int decs[Stat];
-		float cost_p[Stat][Stat];
+		cout<<"\n\n\tMejoramiento de la politica\n\n";
+		long int decs[Stat];
+		double cost_p[Stat][Stat];
 		
 		for(i=0;i<=Stat-1;i++){
 			decs[i]=0;
@@ -254,7 +252,7 @@ void mejorPoliDiscMax(long double **C,float M[100][100][100],int x, int y){
 		for(i=0;i<=Stat-1;i++){
 			if(decs[i]==1){
 				cout<<"Estado "<<i+1<<":\n\n";
-				cout<<"\tDecisión única"<<"\n\n";
+				cout<<"\tDecision unica"<<"\n\n";
 				nPol[i]=Pol[i];
 			}else{
 				cout<<"Estado "<<i+1<<":\n\n";
@@ -265,7 +263,7 @@ void mejorPoliDiscMax(long double **C,float M[100][100][100],int x, int y){
 							cost_p[ii][i]+=M[i][j][ii]*B[j+1];
 						}
 						cost_p[ii][i]-=B[i+1];
-						cout<<"\tDecisión "<< ii+1<<"\t";
+						cout<<"\tDecision "<< ii+1<<"\t";
 						cout<<cost_p[ii][i]<<"\n";
 					}
 				}
@@ -295,15 +293,15 @@ void mejorPoliDiscMax(long double **C,float M[100][100][100],int x, int y){
 		}
 		
 		if(ind==Stat){//FIN
-			cout<<"\n\n\tLA POLÍTICA ES ÓPTIMA\n\n";
+			cout<<"\n\n\tLA POLITICA ES OPTIMA\n\n";
 			for(i=0;i<=Stat-1;i++){
-				cout<<"Tomar la decisión "<<nPol[i]+1<<" en el estado "<<i+1<<"\n";
+				cout<<"Tomar la decision "<<nPol[i]+1<<" en el estado "<<i+1<<"\n";
 			}
 			Final=1;
 		}else{//NUEVA POLÍTICA
-			cout<<"\n\n\tLA POLÍTICA NO ES ÓPTIMA. NUEVA POLÍTICA:\n\n";
+			cout<<"\n\n\tLA POLITICA NO ES OPTIMA. NUEVA POLITICA:\n\n";
 			for(i=0;i<=Stat-1;i++){
-				cout<<"Tomar la decisión "<<nPol[i]+1<<" en el estado "<<i+1<<"\n";
+				cout<<"Tomar la decision "<<nPol[i]+1<<" en el estado "<<i+1<<"\n";
 			}
 			for(i=0;i<=Stat-1;i++){
 				Pol[i]=nPol[i];
@@ -313,29 +311,32 @@ void mejorPoliDiscMax(long double **C,float M[100][100][100],int x, int y){
 	}while(Final==0);
 }
 
-void mejorPoliDiscMin(long double **C,float M[100][100][100],int x, int y){
+void mejorPoliDiscMin(long double **C,float M[100][100][100],int Stat, int Desic){
 	
-	int Stat,Desic,i,j,k,Total;
+	int i,j,k,Total;
 	char opc;
 
-
+		
 	system("clear");
-	cout<<"\n\t\t\tPROCESOS MARKOVIANOS DE DESICIÓN";
-	cout<<"\n\t\tMejoramiento de Políticas con Descuento";
-	cout<<"\n\t\tMinimzación";
-	C[x][y];
-	M[Desic][x][y];
-	int Pol[Stat];
-	int nPol[Stat];
-	int dec,ii,jj;
-	float Vi[Stat];
-	float alpha;
-
+	cout<<"\n\t\t\tPROCESOS MARKOVIANOS DE DESICION";
+	cout<<"\n\t\tMejoramiento de Politicas con Descuento";
+	cout<<"\n\t\tMinimzacion";
+	
+	//long int Pol[Stat];
+	//long int nPol[Stat];
+	long int dec,ii,jj;
+	//double Vi[Stat];
+	double alpha;
+	
+	long int Pol[100];
+	long int nPol[100];
+	double Vi[100];
+	
 	//Elección de la política arbitraria
-	cout<<"\n\n\tPolítica Arbitraria";
+	cout<<"\n\n\tPolitica Arbitraria";
 	for(i=0;i<=Stat-1;i++){
 		do{
-			cout<<"\n\tIngrese el elemento "<<i+1<<" del vector de la política arbitraria:";
+			cout<<"\n\tIngrese el elemento "<<i+1<<" del vector de la politica arbitraria:";
 			cin>>Pol[i];
 			Pol[i]=Pol[i]-1;
 		}while(Pol[i]<0 || Pol[i]>=Stat);
@@ -343,7 +344,7 @@ void mejorPoliDiscMin(long double **C,float M[100][100][100],int x, int y){
 	
 	system("clear");
 	//Impresión de la política arbitraria
-	cout<<"\n\tLa política arbitraria es: (";
+	cout<<"\n\tLa politica arbitraria es: (";
 	for(i=0;i<=Stat-1;i++){
 		if(i<=Stat-1){
 			cout<<Pol[i]<<",";	
@@ -361,7 +362,7 @@ void mejorPoliDiscMin(long double **C,float M[100][100][100],int x, int y){
 	do{
 		system("clear");
 		//MATRIZ DE LA POLÍTICA
-		cout<<"\n\n\tEl sistema de ecuaciones quedaría de la siguiente manera\n";
+		cout<<"\n\n\tEl sistema de ecuaciones quedaria de la siguiente manera\n";
 		
 		k=0;
 		for(i=0;i<=Stat-1;i++){
@@ -381,8 +382,8 @@ void mejorPoliDiscMin(long double **C,float M[100][100][100],int x, int y){
 		
 		//MATRIZ DE COSTO PROMEDIO
 		k=0;
-		float GR[Stat][Stat];
-		float B[Stat];
+		double GR[Stat][Stat];
+		double B[Stat];
 		
 		for(i=0;i<=Stat-1;i++){
 			GR[i][0]=1;
@@ -421,7 +422,7 @@ void mejorPoliDiscMin(long double **C,float M[100][100][100],int x, int y){
 		
 		//GAUSS
 		k=0;
-		float piv;
+		double piv;
 		while(k<=Stat-1){
 			for(i=k;i<=Stat-1;i++){
 				for(j=k;j<=Stat-1;j++){
@@ -534,9 +535,9 @@ void mejorPoliDiscMin(long double **C,float M[100][100][100],int x, int y){
 		system("clear");
 		
 		//MEJORAMIENTO DE LA POLÍTICA
-		cout<<"\n\n\tMejoramiento de la política\n\n";
-		int decs[Stat];
-		float cost_p[Stat][Stat];
+		cout<<"\n\n\tMejoramiento de la politica\n\n";
+		long int decs[Stat];
+		double  cost_p[Stat][Stat];
 		
 		for(i=0;i<=Stat-1;i++){
 			decs[i]=0;
@@ -559,7 +560,7 @@ void mejorPoliDiscMin(long double **C,float M[100][100][100],int x, int y){
 		for(i=0;i<=Stat-1;i++){
 			if(decs[i]==1){
 				cout<<"Estado "<<i+1<<":\n\n";
-				cout<<"\tDecisión única"<<"\n\n";
+				cout<<"\tDecision unica"<<"\n\n";
 				nPol[i]=Pol[i];
 			}else{
 				cout<<"Estado "<<i+1<<":\n\n";
@@ -570,7 +571,7 @@ void mejorPoliDiscMin(long double **C,float M[100][100][100],int x, int y){
 							cost_p[ii][i]+=M[i][j][ii]*B[j+1];
 						}
 						cost_p[ii][i]-=B[i+1];
-						cout<<"\tDecisión "<< ii+1<<"\t";
+						cout<<"\tDecision "<< ii+1<<"\t";
 						cout<<cost_p[ii][i]<<"\n";
 					}
 				}
@@ -600,15 +601,15 @@ void mejorPoliDiscMin(long double **C,float M[100][100][100],int x, int y){
 		}
 		
 		if(ind==Stat){//FIN
-			cout<<"\n\n\tLA POLÍTICA ES ÓPTIMA\n\n";
+			cout<<"\n\n\tLA POLITICA ES OPTIMA\n\n";
 			for(i=0;i<=Stat-1;i++){
-				cout<<"Tomar la decisión "<<nPol[i]+1<<" en el estado "<<i+1<<"\n";
+				cout<<"Tomar la decision "<<nPol[i]+1<<" en el estado "<<i+1<<"\n";
 			}
 			Final=1;
 		}else{//NUEVA POLÍTICA
-			cout<<"\n\n\tLA POLÍTICA NO ES ÓPTIMA. NUEVA POLÍTICA:\n\n";
+			cout<<"\n\n\tLA POLITICA NO ES OPTIMA. NUEVA POLITICA:\n\n";
 			for(i=0;i<=Stat-1;i++){
-				cout<<"Tomar la decisión "<<nPol[i]+1<<" en el estado "<<i+1<<"\n";
+				cout<<"Tomar la decision "<<nPol[i]+1<<" en el estado "<<i+1<<"\n";
 			}
 			for(i=0;i<=Stat-1;i++){
 				Pol[i]=nPol[i];
