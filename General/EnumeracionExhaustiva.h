@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void MaximizarEnumeracionExhaustiva(float mt[100][100][100], long int **csts, int stds, int dcsns){
+void MaximizarEnumeracionExhaustiva(float mt[100][100][100], long double **csts, int stds, int dcsns){
     int i,j,k,l,kk,cntdr,pp;
 
     pp = pow(dcsns,stds);
@@ -324,7 +324,7 @@ void MaximizarEnumeracionExhaustiva(float mt[100][100][100], long int **csts, in
 	//system("pause");
 }
 
-void MinimizarEnumeracionExhaustiva(float mt[100][100][100], long int **csts, int stds,int dcsns){
+void MinimizarEnumeracionExhaustiva(float mt[100][100][100], long double **csts, int stds,int dcsns){
     int i,j,k,l,kk,cntdr,pp;
     pp = pow(dcsns,stds);
 	int pltcs[pp][stds];

@@ -3,7 +3,7 @@
 using namespace std;
 
 
-void MaximizarMP(float Prob[100][100][100],long int **Costos,int num_edos,int num_dec){
+void MaximizarMP(float Prob[100][100][100],long double **Costos,int num_edos,int num_dec){
 	
 	int i,j,ii,jj,k,a,b,c,dec;
 	float suma;
@@ -317,7 +317,7 @@ void MaximizarMP(float Prob[100][100][100],long int **Costos,int num_edos,int nu
 	}while(Final==0);
 }	
 
-void MinimizarMP(float Prob[100][100][100], long int **Costos, int num_edos, int num_dec){
+void MinimizarMP(float Prob[100][100][100], long double **Costos, int num_edos, int num_dec){
 	
 	int i,j,ii,jj,k,a,b,c,dec;
 	float suma;

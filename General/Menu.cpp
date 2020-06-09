@@ -46,9 +46,9 @@ int main(){
 	
 
 	// Hacemos referencia a la matriz de costos
-	long int** matrizCostos = new long int*[estados];
+	long double** matrizCostos = new long double*[estados];
 	for(i=0;i<estados;i++){
-		matrizCostos[i] = new long int[decisiones];
+		matrizCostos[i] = new long double[decisiones];
 	}
 	
 	if(DecisionMaxMin == '-'){

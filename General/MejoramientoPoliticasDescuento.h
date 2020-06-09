@@ -7,7 +7,7 @@
 using namespace std;
 
 
-void mejorPoliDiscMax(long int **C,float M[100][100][100],int x, int y){
+void mejorPoliDiscMax(long double **C,float M[100][100][100],int x, int y){
 
 	int Stat,Desic,i,j,k,Total;
 	char opc;
@@ -313,7 +313,7 @@ void mejorPoliDiscMax(long int **C,float M[100][100][100],int x, int y){
 	}while(Final==0);
 }
 
-void mejorPoliDiscMin(long int **C,float M[100][100][100],int x, int y){
+void mejorPoliDiscMin(long double **C,float M[100][100][100],int x, int y){
 	
 	int Stat,Desic,i,j,k,Total;
 	char opc;
