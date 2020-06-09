@@ -7,7 +7,7 @@
 
 using namespace std;
 
-void mejorPoliDiscMax(long double **C,float M[100][100][100],int Stat, int Desic){
+void mejorPoliDiscMax(long double C[100][100],float M[100][100][100],int Stat, int Desic){
 
 	int i,j,k,Total;
 	char opc;
@@ -74,8 +74,8 @@ void mejorPoliDiscMax(long double **C,float M[100][100][100],int Stat, int Desic
 		
 		//MATRIZ DE COSTO PROMEDIO
 		k=0;
-		float GR[Stat][Stat];
-		float B[Stat];
+		double GR[Stat][Stat];
+		double B[Stat];
 		
 		for(i=0;i<=Stat-1;i++){
 			GR[i][0]=1;
@@ -311,7 +311,7 @@ void mejorPoliDiscMax(long double **C,float M[100][100][100],int Stat, int Desic
 	}while(Final==0);
 }
 
-void mejorPoliDiscMin(long double **C,float M[100][100][100],int Stat, int Desic){
+void mejorPoliDiscMin(long double C[100][100],float M[100][100][100],int Stat, int Desic){
 	
 	int i,j,k,Total;
 	char opc;

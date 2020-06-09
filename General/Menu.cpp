@@ -19,6 +19,7 @@ int main(){
 	double numChico = -9999999999;
 	double numGrande = 9999999999;
 	float matrizTransicion[100][100][100];	
+	long double matrizCostos[100][100];
 	
 	cout << "Maximizar(+) Minimizar(-):";
 	cin >> DecisionMaxMin;
@@ -47,10 +48,6 @@ int main(){
 	
 
 	// Hacemos referencia a la matriz de costos
-	long double** matrizCostos = new long double*[estados];
-	for(i=0;i<estados;i++){
-		matrizCostos[i] = new long double[decisiones];
-	}
 	
 	if(DecisionMaxMin == '-'){
 		

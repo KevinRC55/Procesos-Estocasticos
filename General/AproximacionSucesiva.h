@@ -3,7 +3,7 @@
 using namespace std;
 	
 	
-void MinimizarAproximacionSucesiva(float matrizTransicion[100][100][100],long double **matrizCostos,int estados,int decisiones){
+void MinimizarAproximacionSucesiva(float matrizTransicion[100][100][100],long double matrizCostos[100][100],int estados,int decisiones){
 	
 	int i,j,k;
 	int N; // Numero maximo de iteraciones
@@ -156,7 +156,7 @@ void MinimizarAproximacionSucesiva(float matrizTransicion[100][100][100],long do
 }
 
 
-void MaximizarAproximacionSucesiva(float matrizTransicion[100][100][100],long double **matrizCostos,int estados,int decisiones){
+void MaximizarAproximacionSucesiva(float matrizTransicion[100][100][100],long double matrizCostos[100][100],int estados,int decisiones){
 	
 	int i,j,k;
 	int N; // Numero maximo de iteraciones
