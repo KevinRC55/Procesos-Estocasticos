@@ -101,6 +101,14 @@ void MaximizarEnumeracionExhaustiva(float mt[100][100][100], long int **csts, in
 
 	for(kk=0;kk<=pp-1;kk++){
 
+		for(k=0;k<=dcsns-1;k++){
+			for(i=0;i<=stds-1;i++){
+				for(j=0;j<=stds-1;j++){
+					mt[i][j][k] = aux[i][j][k];
+				}	
+			}
+		}
+
 		cout<<"\n\n\n ||POLITICA R(";
 
 		for(i=0;i<=stds-1;i++){
@@ -414,6 +422,14 @@ void MinimizarEnumeracionExhaustiva(float mt[100][100][100], long int **csts, in
 
 	for(kk=0;kk<=pp-1;kk++){
 
+		for(k=0;k<=dcsns-1;k++){
+			for(i=0;i<=stds-1;i++){
+				for(j=0;j<=stds-1;j++){
+					mt[i][j][k] = aux[i][j][k];
+				}	
+			}
+		}
+
 		cout<<"\n\n\n ||POLITICA R(";
 
 		for(i=0;i<=stds-1;i++){
@@ -628,6 +644,4 @@ void MinimizarEnumeracionExhaustiva(float mt[100][100][100], long int **csts, in
 	cout<<"\n\n";
 	//system("pause");
 }
-
-
 
